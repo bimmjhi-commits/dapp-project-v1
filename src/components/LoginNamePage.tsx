@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   LogIn,
   Send,
@@ -23,6 +23,8 @@ export const LoginNamePage: React.FC<LoginNamePageProps> = ({ onSuccessLogin, in
   const [validation, setValidation] = useState<NameCheckResult | null>(null);
   const [errorShake, setErrorShake] = useState(false);
 
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
   useEffect(() => {
     if (!nameInput.trim() && nameInput.length === 0) {
       setValidation(null);
@@ -42,6 +44,14 @@ export const LoginNamePage: React.FC<LoginNamePageProps> = ({ onSuccessLogin, in
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Play audio on user interaction
+    if (audioRef.current) {
+      audioRef.current.play().catch(() => {
+        // Fallback if browser still blocks
+      });
+    }
+
     if (nameInput.length > 12 || !nameInput.trim() || !/^[a-zA-Z\s]+$/.test(nameInput)) { triggerShake(); return; }
     if (nameInput.trim().length < 4) {
       setValidation({ valid: false, available: false, message: 'Minimal 4 huruf!' });
@@ -67,6 +77,7 @@ export const LoginNamePage: React.FC<LoginNamePageProps> = ({ onSuccessLogin, in
       {/* BACKGROUND VIDEO - PAKSA JALAN */}
       <video
         autoPlay
+        muted
         loop
         playsInline
         preload="auto"
@@ -76,6 +87,11 @@ export const LoginNamePage: React.FC<LoginNamePageProps> = ({ onSuccessLogin, in
       >
         <source src="https://videotourl.com/videos/1793293355529-b683c217-bde6-4955-ac14-f9d8f0b1ba1e.mp4" type="video/mp4" />
       </video>
+
+      {/* SEPARATE AUDIO - PLAYS ON CLICK */}
+      <audio ref={audioRef} loop>
+        <source src="https://videotourl.com/videos/1793293355529-b683c217-bde6-4955-ac14-f9d8f0b1ba1e.mp4" type="audio/mpeg" />
+      </audio>
 
       {/* Dark Overlay over Video for visual depth & legibility */}
       <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-[1px] z-0 pointer-events-none" />
@@ -137,7 +153,7 @@ export const LoginNamePage: React.FC<LoginNamePageProps> = ({ onSuccessLogin, in
               className="w-full h-14 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-500 hover:brightness-110 text-white font-black text-sm tracking-[0.2em] uppercase rounded-[18px] shadow-[0_8px_25px_rgba(37,99,235,0.4)] active:scale-95 transition-all flex items-center justify-center gap-3 cursor-pointer group"
             >
               <LogIn className="w-5 h-5 stroke-[2.5] group-hover:translate-x-1 transition-transform text-cyan-300" />
-              <span>SIGN IN NOW</span>
+              <span>ENTER NAME</span>
             </button>
           </form>
         </div>
