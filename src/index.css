@@ -1,0 +1,210 @@
+@import "tailwindcss";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+main {
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* Card full width */
+.clay-card-white, .clay-card-black, [class*="card"] {
+  width: 100%;
+}
+
+@layer base {
+  :root {
+    --bg-grid-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+/* Gradient button style */
+.btn-buka-tool {
+  background: linear-gradient(to right, #00d4ff, #00ff88) !important;
+  color: black !important;
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  border: none !important;
+}
+
+
+/* ==========================================================================
+   MADE EVOLVE SANS EVO @font-face DEFINITIONS
+   ========================================================================== */
+@font-face {
+  font-family: 'MADE Evolve Sans EVO';
+  src: url('https://cdn.jsdelivr.net/gh/justfont/MADE-Evolve-Sans-EVO/MADE-Evolve-Sans-EVO-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MADE Evolve Sans EVO';
+  src: url('https://cdn.jsdelivr.net/gh/justfont/MADE-Evolve-Sans-EVO/MADE-Evolve-Sans-EVO-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   GLOBAL TYPOGRAPHY ENFORCEMENT
+   ========================================================================== */
+html,
+body,
+* {
+  font-family: 'MADE Evolve Sans EVO', sans-serif !important;
+}
+
+body {
+  background-color: #0F172A;
+  background-image: url('https://cdn.phototourl.com/member/2026-10-29-9580877a-3d18-4a60-abf9-9df2968ed319.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #0F172A;
+  image-rendering: auto;
+}
+
+/* ==========================================================================
+   SITE BACKGROUND UTILITIES (Crisp & Sharp - No Blur)
+   ========================================================================== */
+.bg-site-main {
+  background-image: url('https://cdn.phototourl.com/member/2026-10-29-9580877a-3d18-4a60-abf9-9df2968ed319.jpg') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  image-rendering: auto !important;
+}
+
+.bg-site-music {
+  background-image: url('https://cdn.phototourl.com/member/2026-10-29-94feceff-0bdc-4fc7-8de9-cfa39307bb55.jpg') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  image-rendering: auto !important;
+}
+
+/* Clear transparent backgrounds for legacy bubble classes so crisp background photo shines through */
+.bg-bubble-dashboard {
+  background-image: url('https://cdn.phototourl.com/member/2026-10-29-9580877a-3d18-4a60-abf9-9df2968ed319.jpg') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+.bg-bubble-dashboard-gray {
+  background-image: url('https://cdn.phototourl.com/member/2026-10-29-9580877a-3d18-4a60-abf9-9df2968ed319.jpg') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+.bg-notebook-grid {
+  background-image: url('https://cdn.phototourl.com/member/2026-10-29-9580877a-3d18-4a60-abf9-9df2968ed319.jpg') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+
+
+/* Black & White Claymorphism Card */
+.clay-card-white {
+  background: #FFFFFF;
+  border: 2.5px solid #000000;
+  border-radius: 28px;
+  box-shadow: 6px 6px 0px #000000, inset 0 2px 4px rgba(255, 255, 255, 1);
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.clay-card-white:active {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0px #000000;
+}
+
+/* Black Claymorphism Card */
+.clay-card-black {
+  background: #000000;
+  border: 2.5px solid #000000;
+  border-radius: 28px;
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.15), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  transition: all 0.2s ease;
+}
+
+/* Glass Bubble Effect for Buttons */
+.bubble-btn-black {
+  background: #000000;
+  color: #FFFFFF;
+  border-radius: 9999px;
+  border: 2px solid #000000;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
+}
+
+.bubble-btn-black:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.1);
+}
+
+.bubble-btn-black:active {
+  transform: translateY(1px);
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Glassmorphism Header/Nav */
+.glass-header {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border-top: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Frutiger Aero Gloss Overlay */
+.gloss-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0%, transparent 100%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.bg-site-no-bg {
+  background-color: #0F172A !important;
+  background-image: none !important;
+}

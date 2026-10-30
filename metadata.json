@@ -1,0 +1,8 @@
+{
+  "name": "DAPP PROJECT TOOLS",
+  "description": "Platform All-in-One Tools & Utilities - DAPP PROJECT",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
