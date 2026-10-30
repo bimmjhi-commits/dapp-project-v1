@@ -915,19 +915,22 @@ export const ToolsMainPage: React.FC<ToolsMainPageProps> = ({
               </span>
             </div>
 
-            {/* 2. BATERAI */}
+            {/* 2. SERVER STATUS */}
             <div className="bg-[#1A1A1E] border border-[#38BDF8]/10 rounded-[20px] py-4 px-2 flex flex-col items-center justify-center text-center">
               <div className="w-10 h-10 rounded-lg bg-[#26262A] border border-[#38BDF8]/20 flex items-center justify-center text-[#38BDF8] mb-1.5">
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <rect x="2" y="2" width="20" height="8" rx="2" />
+                  <rect x="2" y="14" width="20" height="8" rx="2" />
+                  <line x1="6" y1="6" x2="6" y2="6" />
+                  <line x1="6" y1="18" x2="6" y2="18" />
                 </svg>
               </div>
-              <span className="font-bold text-[#E5E7EB] text-2xl leading-none font-['Share_Tech_Mono'] flex items-center gap-0.5">
-                {isCharging && <span className="text-[#38BDF8] text-xs animate-pulse">⚡</span>}
-                {batteryLevel !== null ? `${batteryLevel}%` : '88%'}
+              <span className="font-bold text-emerald-400 text-[14px] leading-none font-['Share_Tech_Mono'] flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                ONLINE
               </span>
               <span className="text-[10px] text-[#8B949E] font-bold uppercase tracking-widest mt-1">
-                Baterai
+                Server
               </span>
             </div>
 
